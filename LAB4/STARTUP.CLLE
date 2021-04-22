@@ -1,0 +1,4 @@
+             CALL       QGPL/STRJOB
+             ADDLIBLE   BCI433LIB
+             ADDLIBLE   SENECAPAY
+             MONMSG     MSGID(CPF2103) 

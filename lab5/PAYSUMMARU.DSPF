@@ -1,0 +1,23 @@
+     A          R RECORD1                                                                           
+     A                                  2  7USER                                                    
+     A                                  2 66DATE                                                    
+     A                                      EDTCDE(Y)                                               
+     A                                  3 66TIME                                                    
+     A                                  2 22'S E N E C A   Payroll Program Comp-                    
+     A                                      leted'                                                  
+     A                                  3  7'Parth Jagdishbhai Patel'                               
+     A                                  5 12'Rates:'                                                
+     A                                  6 22'Day Hours:'                                            
+     A                                  7 22'Afternoon Hours:'                                      
+     A                                  8 22'Night Hours:'                                          
+     A                                 11 11'Totals:'                                               
+     A                                 12 22'Regular Pay:'                                          
+     A                                 13 22'Overtime Pay:'                                         
+     A                                 14 22'Company Payout:'                                       
+     A            TOTREGPAY      9  2O 12 40EDTCDE(1)                                               
+     A            TOTWKPAY       9  2O 14 40EDTCDE(1 $)                                             
+     A            TOTOVTPAY      9  2O 13 40EDTCDE(1)                                               
+     A            DAYHRS         5Y 2O  6 45EDTCDE(1)                                               
+     A            AFTHRS         5Y 2O  7 45EDTCDE(1)                                               
+     A            NIGHTHRS       5Y 2O  8 45EDTCDE(1)                                               
+                                                                                                     

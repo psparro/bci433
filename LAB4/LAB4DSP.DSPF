@@ -1,0 +1,25 @@
+     A                                      DSPSIZ(24 80 *DS3)
+     A          R RECORD1
+     A                                      CF03(03)
+                                            CF21(21)
+
+     A                                  1 38'Lab 4'
+     A                                  5  3'Please select one of the following-
+     A                                       options:'
+     A                                  9 14'3.  Maximum Invalid Signon Attempt-
+     A                                      s allowed'
+     A                                 11 14'5.  Operating system level'
+     A                                  7 14'1.  Signed on User''s Message Queu-
+     A                                      e'
+     A                                 15 17'Option:'
+     A                                 23  4'F3=Exit'
+     A                                 23 17'F21=Comand Line '
+     A                                  2  3'PARTH JAGDISHBHAI PATEL'
+     A                                 10 14'4.  Previous sign on by signed on -
+     A                                      user'
+     A                                  8 14'2.  Run Covid Information Applicat-
+     A                                      ion'
+     A            MSGTXT1       70   O 19  4
+     A            OPTION         2   B 15 26DSPATR(RI PC)
+     A  30                             15 39'Invalid Option'
+     A            MSGTXT2       70     20  4 

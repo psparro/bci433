@@ -1,0 +1,113 @@
+
+             PGM
+             DCLF       LAB4DSP
+             DCL        &MSGQ *CHAR 10
+             DCL        &MSGQLIB *CHAR 10
+             dcl        &INVALID *CHAR 30
+             DCL        &QMAXSIGN *CHAR 6
+             DCL        &DATE *CHAR 8
+             DCL        &TIME *CHAR 8
+             DCL        &PVSN *CHAR 13
+             DCL        &SYSLVL *CHAR 9
+
+             SNDRCVF
+
+             DoWhile    (&IN03 = '0')
+
+                SELECT
+                   WHEN       (&OPTION = '1' *OR &OPTION = '01') DO
+
+                      CHGVAR     &IN30 '0'
+                      CALLSUBR   OPTION1
+
+                   ENDDO
+
+                   WHEN       (&OPTION = '2' *OR &OPTION = '2') DO
+                      CHGVAR     &IN30 '0'
+                      CALLSUBR   OPTION2
+                   ENDDO
+
+                   WHEN       (&OPTION = '3' *OR &OPTION = '3') DO
+                      CHGVAR     &IN30 '0'
+                      CALLSUBR   OPTION3
+                   ENDDO
+
+                   WHEN       (&OPTION = '4' *OR &OPTION = '4') DO
+                      CHGVAR     &IN30 '0'
+                      CALLSUBR   OPTION4
+                   ENDDO
+
+                   WHEN       (&OPTION = '5' *OR &OPTION = '5') DO
+                      CHGVAR     &IN30 '0'
+                      CALLSUBR   OPTION5
+                   ENDDO
+
+
+                   OTHERWISE  CALLSUBR INVALID
+                ENDSELECT
+
+                SELECT
+                   WHEN       (&IN21 = '1') CALL QUSCMDLN
+                ENDSELECT
+
+
+                SNDRCVF
+             ENDDO
+
+
+             SUBR       OPTION1
+                RTVUSRPRF  MSGQ(&MSGQ) MSGQLIB(&MSGQLIB)
+                CHGVAR     &MSGTXT1 ('Signed on User''s message queue is' *BCAT &MSGQLIB *TCAT +
+                             '/' *CAT &MSGQ)
+                CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+                             system')
+             ENDSUBR
+
+             SUBR       OPTION2
+                CALL       COVIDRPG
+                CHGVAR     &MSGTXT1 ('The students COVIDRPG RPGLE program was run')
+                CHGVAR     &MSGTXT2 ('CLLE Programs can manage how an RPGLE Business +
+                             Application is run')
+             ENDSUBR
+
+             SUBR       OPTION3
+                RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&QMAXSIGN)
+                CHGVAR     &MSGTXT1 ('Maximum invalid signons attempts allowed:' *BCAT +
+                             &QMAXSIGN *BCAT '(tries)')
+                CHGVAR     &MSGTXT2 ('CLLE Programs can report on the system and manage system +
+                             wide settings')
+                CHGVAR     &INVALID ' '
+             ENDSUBR
+
+             SUBR       OPTION4
+                RTVUSRPRF  PRVSIGN(&PVSN) USRPRF(*CURRENT)
+                RTVUSRPRF  RTNUSRPRF(&MSGQ) USRPRF(*CURRENT)
+                CHGVAR     &DATE (%SST(&PVSN 4 2) *CAT '/' *CAT %SST(&PVSN 6 2) *CAT '/' *CAT +
+                             %SST(&PVSN 2 2))
+                CHGVAR     &TIME (%SST(&PVSN 8 2) *CAT ':' *CAT %SST(&PVSN 10 2) *CAT ':' *CAT +
+                             %SST(&PVSN 12 2))
+                CHGVAR     &MSGTXT1 ('Previous sign on by signed on user ' *BCAT &MSGQ *BCAT +
+                             'was on ' *CAT &DATE *BCAT &TIME)
+                CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+                             system')
+                CHGVAR     &INVALID ' '
+             ENDSUBR
+
+             SUBR       OPTION5
+                RTVOBJD    OBJ(QSYS/QCMD) OBJTYPE(*PGM) SYSLVL(&SYSLVL)
+                CHGVAR     &MSGTXT1 ('The system level of the operating system is' *BCAT +
+                             &SYSLVL)
+                CHGVAR     &MSGTXT2 ('CLLE Programs can report on system information')
+                CHGVAR     &INVALID ' '
+             ENDSUBR
+
+             SUBR       INVALID
+                CHGVAR     &INVALID 'Valid option must be entered'
+                CHGVAR     &in30 '1'
+                CHGVAR     &MSGTXT1 ' '
+                CHGVAR     &MSGTXT2 ' '
+             ENDSUBR
+
+
+             ENDPGM
+ 

@@ -1,0 +1,61 @@
+     A          R TITLE
+     A                                  2  6DATE
+     A                                      EDTCDE(Y)
+     A                                  2 16TIME
+     A                                  2 57'Weekly Pay Report'
+     A                                  2103'Page:'
+     A                                  2109PAGNBR
+     A                                  3  6'PARTH JAGDISHBHAI PATEL'
+     A            SHIFTTYPE     30      3 54
+     A          R COLHDG                    SPACEB(2)
+     A                                     6'Employee'
+     A                                    20'Work'
+     A                                    31'Pay'
+     A                                    42'Hourly'
+     A                                    56'Hours'
+     A                                    69'Regular'
+     A                                    85'Overtime'
+     A                                   102'Total'
+     A                                     6'Number'
+     A                                      SPACEB(1)
+     A                                    20'Shift'
+     A                                    31'Class'
+     A                                    42'Rate'
+     A                                    56'Worked'
+     A                                    69'Pay'
+     A                                    85'Pay'
+     A                                   102'Pay'
+     A          R EMPDETAIL                 SPACEB(2)
+     A            EMPNUM    R              6
+     A                                      REFFLD(SHIFTWEEK/EMPNUM SENECAPAY/S-
+     A                                      HIFTWEEK)
+     A                                      EDTWRD('0  -   -   -')
+     A            WORKSHIFT R             20
+     A                                      REFFLD(SHIFTWEEK/WORKSHIFT +
+     A                                      SENECAPAY/SHIFTWEEK)
+     A            PAYCLASS  R             31REFFLD(SHIFTWEEK/PAYCLASS +
+     A                                      SENECAPAY/SHIFTWEEK)
+     A            HOURLYRATE     5  2     42EDTCDE(1)
+     A            HRSWORKED R             56REFFLD(SHIFTWEEK/HRSWORKED +
+     A                                      SENECAPAY/SHIFTWEEK)
+     A            REGULARPAY     7  2     69EDTCDE(1)
+     A            OVERPAY        7  2     85EDTCDE(1)
+     A            WEEKLYPAY      7  2    102EDTCDE(1)
+     A          R TOTALS                    SPACEB(3)
+     A                                    51'Totals:'
+     A            TOTREGPAY      9  2     65EDTCDE(1 $)
+     A            TOTOVTPAY      9  2     81EDTCDE(1 $)
+     A            TOTWKPAY       9  2     98EDTCDE(1 $)
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="REPORT1">
+     A*%%RS+  <device type="printer" width="132" height="66" />
+     A*%%RS+  <record-write record-format="TITLE" />
+     A*%%RS+  <record-write record-format="COLHDG" />
+     A*%%RS+  <record-write record-format="EMPDETAIL" />
+     A*%%RS+  <record-write record-format="TOTALS" />
+     A*%%RS+ </sequence>
+     A*%%RS+ <sequence name="Untitled1">
+     A*%%RS+  <device type="printer" width="132" height="66" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences> 

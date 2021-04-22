@@ -1,0 +1,59 @@
+     A          R HEAD
+     A                                  2  4USER
+     A                                  2 21'E M P L O Y E E  I N F O R M A T I-
+     A                                       O N'
+     A                                  2 68DATE
+     A                                      EDTCDE(Y)
+     A                                  3  4'PARTH PATEL'
+     A                                  4  4'Enter Employee Number:'
+     A            ERRORMSG      36   O  4 40
+     A            EMPNUMIN       9  0B  4 27EDTCDE(4)
+     A  31                                  DSPATR(PR)
+     A          R BODY                      OVERLAY
+     A                                      CF06(06)
+     A                                      CF03(03)
+     A                                  5 33'Employee Data'
+     A                                  6  4'First Name:'
+     A                                  7  4'Last Name:'
+     A                                  8  4'Phone Number:'
+     A                                  6 41'City:'
+     A                                  7 41'Address:'
+     A                                  9  4'Year to Date pay:'
+     A                                 11 30'Last Shift Worked'
+     A                                 13  4'Shift:'
+     A                                 14  4'Hours Worked:'
+     A                                 15  4'Pay Grade:'
+     A                                 13 38'Regular Pay:'
+     A                                 14 38'Overtime Pay:'
+     A                                 15 38'Shift Pay:'
+     A            REGULARPAY     7  2O 13 53EDTCDE(1)
+     A            OVERPAY        7  2  14 53EDTCDE(1)
+     A            SFTPAY         7  2  15 53EDTCDE(1)
+     A                                 17  5'F3 - Exit'
+     A                                 17 39'F6 - Update Employee Record'
+     A            SFTTIM        10X  O 13 18
+     A            PAYGRADEIN     1   B 15 18VALUES('1' '2' '3' '4')
+     A            FIRSTNAME R        O  6 22REFFLD(EMPLOYEE/FIRSTNAME +
+     A                                      LAB8B27/EMPLOYEEP)
+     A            LASTNAME  R        O  7 22REFFLD(EMPLOYEE/LASTNAME +
+     A                                      LAB8B27/EMPLOYEEP)
+     A            PHONE     R        O  8 22REFFLD(EMPLOYEE/PHONE LAB8B27/EMPLO-
+     A                                      YEEP)
+     A            CITY      R        B  6 50REFFLD(EMPLOYEE/CITY LAB8B27/EMPLOY-
+     A                                      EEP)
+     A                                      CHECK(LC)
+     A            ADDRESS   R        B  7 50REFFLD(EMPLOYEE/ADDRESS LAB8B27/EMP-
+     A                                      LOYEEP)
+     A            YTDPAY    R        O  9 22REFFLD(EMPLOYEE/YTDPAY LAB8B27/EMPL-
+     A                                      OYEEP)
+     A                                      EDTCDE(1)
+     A            HRSWORKED R        O 14 18REFFLD(WORKWEEK1/HRSWORKED +
+     A                                      LAB8B27/WORKWEEKP)
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="Untitled">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+  <record-write record-format="HEAD" />
+     A*%%RS+  <record-write record-format="BODY" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences>                               

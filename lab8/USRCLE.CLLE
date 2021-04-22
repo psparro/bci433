@@ -1,0 +1,31 @@
+             PGM
+
+             DLTF       LAB8B27/WORKWEEKP
+             DLTF       LAB8B27/EMPLOYEEP
+             DLTF       LAB8B27/SHIFTRATE2
+             MONMSG     MSGID(CPF2105)
+
+             CPYF       FROMFILE(SENECAPAY/WORKWEEK1) TOFILE(LAB8B27/WORKWEEKP) +
+                          MBROPT(*REPLACE) CRTFILE(*YES)
+             CPYF       FROMFILE(SENECAPAY/EMPLOYEE) TOFILE(LAB8B27/EMPLOYEEP) +
+                          MBROPT(*REPLACE) CRTFILE(*YES)
+             CPYF       FROMFILE(SENECAPAY/SHIFTRATES) TOFILE(LAB8B27/SHIFTRATE2) +
+                          MBROPT(*REPLACE) CRTFILE(*YES)
+
+             CLROUTQ    DW433B27
+
+             RUNQRY     *N LAB8B27/WORKWEEKP
+
+             RUNQRY     *N LAB8B27/EMPLOYEEP
+
+             OVRDBF     EMPLOYEE2 LAB8B27/EMPLOYEEP
+             CALL       USRRPG
+
+             RUNQRY     *N LAB8B27/WORKWEEKP
+             RUNQRY     *N LAB8B27/EMPLOYEEP
+
+             DSPJRN     JRN(LAB8B27/QSQJRN) FILE((LAB8B27/WORKWEEKP))
+             DSPJRN     JRN(LAB8B27/QSQJRN) FILE((LAB8B27/EMPLOYEEP))
+
+             ENDPGM
+ 

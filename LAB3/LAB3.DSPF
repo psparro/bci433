@@ -1,0 +1,61 @@
+     A          R RISKFACTOR                CF01(01 'Cohort Info')
+     A                                  3 28'C O V I D 1 9   R I S K   F A C T -
+     A                                      O R S '
+     A                                  1  3USER
+     A                                  3  2'DARSHILKUMAR MUNGALPARA'
+     A                                  3 71DATE
+     A                                      EDTCDE(Y)
+     A                                  5  3'Birth Date:'
+     A                                  5 34'Gender:'
+     A                                  5 46'M/F'
+     A            BIRTHDATE       L  B  5 15
+     A            GENDER         1   B  5 43
+     A                                      VALUES('M' 'F')
+     A  95                                  DSPATR(RI PC)
+     A  60                                  DSPATR(PR)
+     A  95                              5 53'Gender Must Not Be Blank'
+     A                                  8  3'Answer the following with Y or N:'
+     A                                 10 45'Diabetes:'
+     A                                 10  3'Cardiovascular Disease:'
+     A                                 13  3'Respiratory Disease:'
+     A                                 13 43'High Blood Pressure:'
+     A            CVDISEASE      1   B 10 27VALUES('Y' 'N')
+     A  96                                  DSPATR(RI PC)
+     A  96                             11  3'Cardiovascular Must Not Be Blank'
+     A            DIABETES       1   B 10 55
+     A  97                                  DSPATR(RI PC)
+     A                                      VALUES('Y' 'N')
+     A  97                             11 45'Diabetes Must Not Be Blank'
+     A  98                             14  3'Respiratory Must Not Be Blank'
+     A  99                             14 43'High Blood Pressure Must Not Be Bl-
+     A                                      ank'
+     A            RSPDISEASE     1   B 13 24
+     A  98                                  DSPATR(RI PC)
+     A                                      VALUES('Y' 'N')
+     A            HBPRESSURE     1   B 13 64
+     A  99                                  DSPATR(RI PC)
+     A                                      VALUES('Y' 'N')
+     A          R RISKASSMNT                CF03(03 'Exit Program')
+     A                                      OVERLAY
+     A                                      CF01(01 'c INFO')
+     A                                 17 25'R I S K   A S S E S S M E N T'
+     A                                 19  6'Age'
+     A            AGE            3Y 0O 21  6EDTCDE(1)
+     A                                 19 14'Fatality Rate'
+     A                                 19 30'Vacination Recomendation'
+     A                                 19 63'Total Quries:'
+     A                                 21 32'Cohort:'
+     A                                 23 19'F1 - Cohort Information'
+     A                                 23 50'F3 - Exit'
+     A            TOTALQ         3Y 0O 21 67EDTCDE(1)
+     A            FRATE          5Y 3O 21 15EDTCDE(1)
+     A                                 21 22'%'
+     A            COHORT         9   O 21 40DSPATR(RI PC)
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="Untitled">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+  <record-write record-format="RISKFACTOR" />
+     A*%%RS+  <record-write record-format="RISKASSMNT" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences>
