@@ -1,0 +1,14 @@
+/*****************************************************/
+/* SYSVALPRG - Display systems value                 */
+/*                                                   */
+/* Code by: Parth Patel                              */
+/*                                                   */
+/*Signature: Parth Patel                             */
+/*****************************************************/
+
+DSPLIBL
+EDTLIBL
+DSPLIBL
+DSPSYSVAL QSYSLIBL
+DSPSYSVAL QUSRLIBL
+             DSPSYSVAL  SYSVAL(QMODEL) 

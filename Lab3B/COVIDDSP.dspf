@@ -1,0 +1,53 @@
+     A          R RISKFACTOR
+     A                                  1  2USER
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A            BIRTHDATE       L  B  3 14
+     A  60                                  DSPATR(PR)
+     A                                  1 24'C O V I D 1 9  R I S K  F A C T O -
+     A                                      R S'
+     A                                  3  2'Birth Date:'
+     A                                  3 34'Gender:'
+     A            GENDER         1   B  3 42VALUES('M' 'F')
+     A  95                                  DSPATR(RI PC)
+     A  60                                  DSPATR(PR)
+     A  95                              3 53'Gender must not be blank'
+     A                                  3 44'M/F'
+     A            CVDISEASSE     1   B  7 26VALUES('Y' 'N')
+     A  96                                  DSPATR(RI PC)
+     A  60                                  DSPATR(PR)
+     A                                  7  2'Cardiovascular Disease:'
+     A  96                              8  2'cardiovascular must not be blank'
+     A                                  5  2'Answer the following with Y or N:'
+     A                                  7 42'Diabetes:'
+     A            DIABETES       1   B  7 52VALUES('Y' 'N')
+     A  60                                  DSPATR(PR)
+     A  97                                  DSPATR(RI PC)
+     A  97                              8 42'Diabetes must not be blank'
+     A                                 10  2'Respiratory Disease:'
+     A            RSPDISEASE     1   B 10 23VALUES('Y' 'N')
+     A  60                                  DSPATR(PR)
+     A  98                                  DSPATR(RI PC)
+     A  98                             11  2'Respiratory Disease must not be bl-
+     A                                      ank'
+     A                                 10 42'High blood pressure:'
+     A            HBPRESSURE     1   B 10 63VALUES('Y' 'N')
+     A  60                                  DSPATR(PR)
+     A  99                                  DSPATR(RI PC)
+     A  99                             11 42'High blood pressure must not be bl-
+     A                                      ank'
+     A          R RISKASSMNT                CF03(03 'Exit Program')
+     A                                      CF01(01)
+     A            AGE            3N 0O 17  7
+     A                                 13 25'R I S K   A S S E S S M E N T '
+     A                                 15  7'AGE'
+     A                                 15 16'Fatality Rate'
+     A            FRATE          5N 3O 17 16
+     A                                 15 31'Vacination Recommendation'
+     A                                 17 31'Cohort:'
+     A            COHORT         9   O 17 39DSPATR(RI)
+     A                                 15 61'Total Queries:'
+     A            TOTALQ         3N 0O 17 61
+     A                                 20  7'F1 - Cohort Information'
+     A                                 20 42'F3 - Exit'
+ 
